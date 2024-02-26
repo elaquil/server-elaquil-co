@@ -1,0 +1,150 @@
+.grid{
+  display: grid;
+  width: 75%;
+  max-width: 800px;
+  justify-items: center;
+  align-items: center;
+}
+
+.gridItem{
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  border: 1px solid var(--clr-dark);
+  background-color: var(--clr-light);
+  border-radius: 5px;
+}
+
+.gridItem:hover{
+  transform: scale(1.1);
+}
+
+.gridContainer{
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridMyAccount{
+  grid-template-areas: 'one' 'two' 'three';
+  gap: 1em;
+  grid-auto-columns: 1.7fr 1fr;
+}
+
+.gridItemMyAccount1{
+  grid-area: two;
+}
+
+.gridItemMyAccount2{
+  grid-area: one;
+}
+
+.gridItemMyAccount3{
+  grid-area: three;
+}
+
+.gridQtb{
+  grid-template-areas: 'one' 'two' 'three';
+  gap: 1em;
+  grid-auto-columns: 1.5fr 1fr;
+}
+
+.gridItemQtb1{
+  grid-area: two;
+}
+
+.gridItemQtb2{
+  grid-area: one;
+}
+
+.gridItemQtb3{
+  grid-area: three;
+}
+
+.gridElsewhere{
+  grid-template-areas: 'one' 'two' 'three' 'four';
+  gap: 1em;
+  grid-auto-columns: 1fr;
+}
+
+.gridItemElsewhere1{
+  grid-area: one;
+}
+
+.gridItemElsewhere2{
+  grid-area: two;
+}
+
+.gridItemElsewhere3{
+  grid-area: three;
+}
+
+.gridItemElsewhere4{
+  grid-area: four;
+}
+
+.gridDF{
+  grid-template-areas: 'one' 'two';
+  gap: 1em;
+  grid-auto-columns: 1.8fr 1fr;
+}
+
+.gridItemDF1{
+  grid-area: one;
+}
+
+.gridItemDF2{
+  grid-area: two;
+}
+
+.gridDF2{
+  grid-template-areas: 'one' 'two' 'three';
+  gap: 1em;
+  grid-auto-columns: 1fr;
+  margin-top: 1em;
+}
+
+.gridItemDF3{
+  grid-area: one;
+}
+
+.gridItemDF4{
+  grid-area: two;
+}
+
+.gridItemDF5{
+  grid-area: three;
+}
+
+@media screen and (min-width: 800px){
+  .gridMyAccount{
+    grid-template-areas: 
+                  'one three' 
+                  'two three';
+  }
+
+  .gridQtb{
+    grid-template-areas: 
+                  'one three' 
+                  'two three';
+  }
+
+  .gridElsewhere{
+    grid-template-areas: 
+                  'one two three' 
+                  'four four four';
+  }
+
+  .gridDF{
+    grid-template-areas: 
+                  'one two';
+  }
+
+  .gridDF2{
+    grid-template-areas: 
+                  'one two three';
+  }
+}

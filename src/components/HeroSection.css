@@ -1,0 +1,22 @@
+img.icon{
+  position: relative;
+  top: 2px;
+  display: inline;
+  height: 15px;
+  width: auto;
+  margin: 0;
+  user-select: none;
+  pointer-events: none;
+  --webkit-user-drag: none;
+  filter: invert(0%);
+}
+
+img.icon.dark{
+  filter: invert(100%);
+}
+
+@media (max-width: 800px){
+  img.icon{
+    height: 12px;
+  }
+}

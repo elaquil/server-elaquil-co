@@ -1,0 +1,104 @@
+@keyframes move {
+  to {
+    transform: translateX(-101%);
+  }
+}
+
+@keyframes mobileMove{
+  0% {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  100%{
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes mobileMoveY {
+  0%{
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-43px);
+  }
+
+  100%{
+    transform: translateY(-43px);
+  }
+}
+
+@keyframes mobileMoveYSmall {
+  0%{
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-31px);
+  }
+
+  100%{
+    transform: translateY(-31px);
+  }
+  
+}
+
+@keyframes invertbg {
+  from {background-color: var(--clr-light);}
+  to {background-color: var(--clr-dark);}
+}
+
+@keyframes inverttx {
+  from {color: var(--clr-dark);}
+  to {color: var(--clr-light);}
+}
+
+.tickerButton{
+  overflow: hidden;
+  display:inline-block;
+  border: 1px solid var(--clr-dark);
+  background-color: var(--clr-light);
+  white-space: nowrap;
+  width: 100%;
+  padding: 0;
+  transition: background-color 0.2s ease-in-out;
+  margin: -1px 0px 0px -1px;
+}
+
+.tickerButton:active{
+  background-color: var(--clr-dark);
+}
+
+.tickerButton:active > div > h2{
+  color: var(--clr-light);
+}
+
+.tickerButtonContainer:hover{
+  animation: move 1.5s infinite linear;
+}
+
+.tickerButtonContainer{
+  display: flex;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+
+.tickerButtonText{
+  line-height: 1;
+  font-size: 18px;
+  margin:0;
+  padding-left:0px;
+  text-align: left;
+  color: var(--clr-dark);
+  transition: color 0.2s ease-in-out;
+  padding: 0px 5px;
+  user-select: none;
+}
+
+a{
+  display: inline-block;
+}

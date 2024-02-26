@@ -1,0 +1,26 @@
+.secTitleContainer{
+  width: 100%;
+  overflow: hidden;
+  border-top: var(--clr-dark) solid 1px;
+  border-bottom: var(--clr-dark) solid 1px;
+}
+
+@keyframes scrollLeft{
+  to{
+    transform: translateX(-100%);
+  }
+}
+
+.secScrollContainer{
+  white-space: nowrap;
+  display: flex;
+
+}
+
+.secTitle{
+  display: inline-block;
+  position: relative;
+  padding: 0 20px;
+  animation: scrollLeft 5s linear infinite;
+  user-select: none;
+}

@@ -1,0 +1,68 @@
+@keyframes moveY{
+  to{
+    transform: translateY(-158%) translateX(-50%);
+  }
+}
+
+.socialBubble{
+  margin-right: 5px;
+  height: 50px;
+  width: 50px;
+  background-color: var(--clr-light);
+  border-radius: 50%;
+  border: 1px solid var(--clr-dark);
+  display: inline-block;
+  font-size: 31px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@media (max-width: 800px){
+  .socialBubble{
+    height: 36px;
+    width: 36px;
+    font-size: 23px;
+  }
+  .socialBubbleContainer{
+    height: 33px !important;
+    width: 33px !important;
+    position: relative;
+    left: 0.5px;
+    right: 0px !important;
+    bottom: 0px !important;
+  }
+}
+
+.socialBubble:hover > div > svg{
+  animation: moveY 0.75s infinite ease-in-out;
+}
+
+.socialBubble:active{
+  background-color: var(--clr-dark);
+}
+
+.socialBubble:active > div > svg{
+  color: var(--clr-light);
+}
+
+.socialBubbleContainer{
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  right: 1px;
+  bottom: 1px;
+}
+
+svg{
+  color: var(--clr-dark);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px 0px;
+  transition: color 0.2s ease-in-out;
+}

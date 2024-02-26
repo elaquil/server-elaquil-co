@@ -1,0 +1,44 @@
+.asterisk{
+  color: var(--clr-accent);
+  cursor: pointer;
+}
+
+h1.mainTitle{
+  display: inline;
+  margin-right: 5px;
+  padding: 5px 0px;
+}
+
+h2{
+  display: inline;
+}
+
+.disclaimer{
+  font-size: 0.7rem;
+  font-style: italic;
+  display: inline;
+  word-break: break-word;
+  vertical-align: top;
+  user-select: none;
+  color: var(--clr-dark);
+  opacity: 0%;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.disclaimer.visible{
+  opacity: 100%;
+}
+
+.socials{
+  display: inline;
+}
+
+p{
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--clr-dark);
+  line-height: 1.5;
+  word-break: break-word;
+}
