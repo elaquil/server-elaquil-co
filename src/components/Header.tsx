@@ -7,6 +7,9 @@ const Header = () => {
         <AnimatedLogo />
       </div>
       <p>presents</p>
+      <div className='logoContainer'>
+        <img src='Minecraft Alpha Logo.png' alt='Minecraft Logo' />
+      </div>
     </div>
   );
 }
