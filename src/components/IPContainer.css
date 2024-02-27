@@ -3,6 +3,10 @@
   margin-right: 0;
 }
 
+.IPText{
+  cursor: pointer;
+}
+
 .clipBoardButton{
   cursor: pointer;
   padding: 0.5em;

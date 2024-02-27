@@ -31,7 +31,7 @@ const IPContainer = (
       <h2>Error fetching IP, maybe force restart the server?</h2> : 
       <div className='IPParentContainer'>
         <div className='IPContainer InlineBlock'>
-          <h2>{publicIp}</h2>
+          <h2 className='IPText' onClick={handleCopyToClipboard}>{publicIp}</h2>
         </div>
           <a className='clipBoardButton' onClick={handleCopyToClipboard} ref={buttonRef}><h2>{copyToClipboardText}</h2></a>
       </div>      
