@@ -109,6 +109,7 @@ p{
   font-family: var(--ff-secondary);
   font-weight: var(--fw-regular);
   font-size: var(--fs-p);
+  text-align: center;
   color: var(--clr-dark);
 }
 
