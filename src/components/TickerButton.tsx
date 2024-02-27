@@ -1,12 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { MouseEventHandler, useEffect, useRef } from 'react';
 import './TickerButton.css';
 
 interface tickerButtonProps {
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
   anchor?: string;
   buttonText: string;
 }
 
-const TickerButton = ({anchor = "", buttonText}: tickerButtonProps) => {
+const TickerButton = ({onClick = (event)=>{event.preventDefault()}, anchor = "", buttonText}: tickerButtonProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
 
@@ -28,8 +29,8 @@ const TickerButton = ({anchor = "", buttonText}: tickerButtonProps) => {
   }, [buttonText]);
 
   return(
-    <a href={anchor}>
-      <button className="tickerButton"  ref={buttonRef}>
+    <a {...(anchor == "" ? {anchor: anchor} : {})} onClick={onClick}>
+      <button className="tickerButton" ref={buttonRef}>
           <div className="tickerButtonContainer">
             <h2 className="tickerButtonText" ref={textRef}>{buttonText}</h2>
             <h2 className="tickerButtonText">{buttonText}</h2>

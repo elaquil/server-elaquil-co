@@ -1,9 +1,22 @@
+import { MouseEventHandler } from 'react';
+import Section from './Section';
+import TickerButton from './TickerButton';
 
-const ServerOffline = () => {
+interface ServerOfflineProps {
+  startUpFunction: MouseEventHandler<HTMLAnchorElement>;
+  buttonText: string;
+}
+
+const ServerOffline = (
+  {startUpFunction, buttonText} : ServerOfflineProps
+) => {
   return (
-    <div>
-      <h1>Server is offline</h1>
-    </div>
+    <>
+      <div>
+        <Section id={''} title={'Server is Offline'} />=
+      </div>
+      <TickerButton buttonText={buttonText} onClick={startUpFunction} />
+    </>
   );
 }
 

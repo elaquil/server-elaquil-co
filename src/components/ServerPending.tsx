@@ -1,9 +1,21 @@
+import Section from './Section';
 
-const ServerPending = () => {
+interface ServerPendingProps{
+  refreshServerInfo: Function;
+}
+
+const ServerPending = ({refreshServerInfo}: ServerPendingProps) => {
+  setTimeout(() => {
+    refreshServerInfo();
+  }, 5000);
+
   return (
-    <div>
-      <h1>Server is pending</h1>
-    </div>
+    <>
+      <div>
+        <Section id={''} title={'Server is Launching'} />      
+      </div>
+      <p>The server is starting up, please wait a moment and then refresh. If you encounter an error on refresh, give it another refresh in a few seconds</p>
+    </>
   );
 }
 

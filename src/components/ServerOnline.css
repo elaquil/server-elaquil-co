@@ -1,0 +1,22 @@
+.PlayerHead{
+  display: inline;
+  height: 25px;
+  width: 25px;
+  margin: 0 0.5em;
+  transform: translateY(7.25px);
+}
+
+.Inline{
+  display: inline;
+}
+
+.PlayerContainer{
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.OnlinePlayersContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

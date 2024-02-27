@@ -3,7 +3,7 @@ import './Section.css'
 interface SectionProps {
   id: string;
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Section = ({id, title, children}: SectionProps) =>{

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import './ServerInfoContainer.css';
 import Loading from './Loading';
 import ServerOffline from './ServerOffline';
 import ServerOnline from './ServerOnline';
 import ServerPending from './ServerPending';
 import ServerStopping from './ServerStopping';
 import ServerError from './ServerError';
+import TickerButton from './TickerButton';
+import ClientError from './ClientError';
 
 interface ServerInfo {
   statusCode?: number;
@@ -16,6 +19,7 @@ interface ServerInfo {
   serverInfo?: {
     "Online players"?: [];
     "Player count"?: number;
+    ip: string;
   }
   error?: {
     errno?: number;
@@ -31,6 +35,7 @@ const ServerInfoContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [serverInfo, setServerInfo] = useState<ServerInfo>({});
   const [infoState, setInfoState] = useState("");
+  const [serverStarting, setServerStarting] = useState(false);
   
   useEffect(() => {
     console.log('fetching server info');
@@ -58,31 +63,67 @@ const ServerInfoContainer = () => {
           setInfoState("Error")
         }
         setIsLoading(false);
-      });
+      }).catch((error) => {
+        console.error('Error:', error);
+        setInfoState("Client Error");
+        setIsLoading(false);
+      }
+    );
   }, [pollServer]);
 
+  const refreshServerInfo = () => {
+    setPollServer(pollServer + 1);
+  }
+
+  const startServer = () => {
+    console.log('starting server');
+    setServerStarting(true);
+    fetch(import.meta.env.VITE_SERVER_START_ENDPOINT)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setTimeout(() => {
+        setServerStarting(false);
+        setPollServer(pollServer + 1); }, 10000);
+      }).catch((error) => {
+        console.error('Error:', error);
+        setServerStarting(false);
+        setPollServer(pollServer + 1);
+      }
+    );
+  }
 
 
   return (
-    <div className='ServerInfoContainer'>
-      {!isLoading && <button onClick={() => setPollServer(pollServer + 1)}>Refresh</button>}
+    <div className='ServerInfoContainer centered'>
+      {!false && 
+        <div className='RefreshButtonWrapper'>
+          <span className='IndicatorWrapper'>
+            <div className={infoState == "Running" ? "Indicator Live" : "Indicator"}></div>
+          </span>
+          <TickerButton buttonText={isLoading? "Refreshing..." : "Refresh?"} onClick={isLoading? ()=>{} : refreshServerInfo} />
+        </div>
+      }
       {(() => {
         if(isLoading){
           return <Loading />
         }
         else switch(infoState){
           case "Error":
-            return <ServerError />
+            return <ServerError refreshServerInfo={refreshServerInfo} />
           case "Pending":
-            return <ServerPending />
+            return <ServerPending refreshServerInfo={refreshServerInfo} />
           case "Running":
             return <ServerOnline serverInfo={serverInfo} />
           case "Stopping":
-            return <ServerStopping />
+            return <ServerStopping refreshServerInfo={refreshServerInfo}/>
           case "Stopped":
-            return <ServerOffline />
+            return <ServerOffline startUpFunction={serverStarting ? () => { } :
+              startServer} buttonText={serverStarting ? 'Starting...' : 'Start it up?'} />
+          case "Client Error":
+            return <ClientError />
           default:
-            return <ServerError />
+            return <ServerError refreshServerInfo={refreshServerInfo} />
         }
       })()}
     </div>

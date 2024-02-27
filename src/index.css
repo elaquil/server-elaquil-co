@@ -70,12 +70,14 @@ a{
 
 html {
 	scroll-behavior: smooth;
+  overflow-x: hidden;
   /* scrollbar-gutter: stable; */
 }
 
 body{
   background-color: var(--clr-light);
   margin: 0;
+  height: 100vh;
 }
 
 h1,

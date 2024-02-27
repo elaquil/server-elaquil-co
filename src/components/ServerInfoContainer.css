@@ -1,0 +1,96 @@
+.ServerInfoContainer{
+  flex-grow: 1;
+  padding: 1em 0;
+}
+
+.RefreshButtonWrapper{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 1em 0;
+  flex-direction: row;
+  width: 100%;
+}
+
+.IndicatorWrapper{
+  display: grid;
+  width: 100%;
+}
+
+.Indicator{
+  justify-self: flex-start;
+  align-self: center;
+  width:15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 100%;
+  animation: pulse 5s infinite forwards;
+  overflow: visible;
+}
+
+.Indicator.Live{
+  background-color: rgb(38, 197, 38);
+  animation: pulseLive 5s infinite forwards;
+
+}
+
+@keyframes pulse{
+  0%{
+    box-shadow: 0 0 3px 1px red,
+                0 0 0 0 var(--clr-light),
+                0 0 0 0 transparent;
+  }
+
+  5%{
+    box-shadow: 0 0 3px 1px red,
+                0 0 3px 15px var(--clr-light),
+                0 0 3px 20px red;
+  }
+
+  10%{
+    box-shadow: 0 0 3px 1px red,
+                0 0 3px 20px var(--clr-light),
+                0 0 3px 20px transparent;
+  }
+  11%{
+    box-shadow: 0 0 3px 1px red,
+                0 0 0 0 transparent,
+                0 0 0 0 transparent;
+  }
+
+  100%{
+    box-shadow: 0 0 3px 1px red,
+                0 0 0 0 transparent,
+                0 0 0 0 transparent;
+  }
+}
+
+@keyframes pulseLive{
+  0%{
+    box-shadow: 0 0 3px 1px rgb(38, 197, 38),
+                0 0 0 0 var(--clr-light),
+                0 0 0 0 transparent;
+  }
+
+  5%{
+    box-shadow: 0 0 3px 1px rgb(38, 197, 38),
+                0 0 3px 15px var(--clr-light),
+                0 0 3px 20px rgb(38, 197, 38);
+  }
+
+  10%{
+    box-shadow: 0 0 3px 1px rgb(38, 197, 38),
+                0 0 3px 20px var(--clr-light),
+                0 0 3px 20px transparent;
+  }
+  11%{
+    box-shadow: 0 0 3px 1px rgb(38, 197, 38),
+                0 0 0 0 transparent,
+                0 0 0 0 transparent;
+  }
+
+  100%{
+    box-shadow: 0 0 3px 1px rgb(38, 197, 38),
+                0 0 0 0 transparent,
+                0 0 0 0 transparent;
+  }
+}

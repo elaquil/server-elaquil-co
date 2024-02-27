@@ -1,0 +1,60 @@
+.IPContainer{
+  border: 1px solid var(--clr-dark);
+  padding: 0.4em;
+  margin: 0.5em;
+  margin-right: 0;
+}
+
+.clipBoardButton{
+  cursor: pointer;
+  height: 40.8px;
+  padding: 0.5em;
+  border: solid 1px black;
+  background: none;
+  border-left: none;
+  margin: 0.5em;
+  margin-left: 0em;
+  transition: background 0.3s ease-in-out, width 0.3s ease-in-out;
+  width: 9em;
+  margin-top: 8px;
+}
+
+@media (max-width: 800px){
+  .clipBoardButton{
+    height: 36.4px;
+    width: 7em;
+  }
+}
+
+.clipBoardButton:hover{
+  background: var(--clr-dark);
+  color: var(--clr-light);
+}
+
+
+.clipBoardButton:hover>h2{
+  color: var(--clr-light);
+}
+
+.clipBoardButton:active{
+  background: var(--clr-dark);
+  color: var(--clr-light);
+}
+
+.clipBoardButton.disabled{
+  cursor: default;
+  background: var(--clr-dark);
+}
+
+.clipBoardButton.disabled>h2{
+  color: var(--clr-accent);
+}
+
+.InlineBlock{
+  display: inline-block;
+}
+
+.IPParentContainer{
+  display: flex;
+  flex-direction: row;
+}
