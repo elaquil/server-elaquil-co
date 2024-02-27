@@ -43,7 +43,7 @@ $size: 75px;
 
 @mixin side($name, $rotate, $i) {
   .#{$name} {
-    animation: #{$name}-animation 2s ease infinite;
+    animation: #{$name}-animation 3s ease infinite;
     animation-delay: $i * 100ms;
     transform: #{$rotate} translateZ($size);
     animation-fill-mode: forwards;
