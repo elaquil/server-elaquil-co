@@ -1,29 +1,24 @@
 .IPContainer{
-  border: 1px solid var(--clr-dark);
-  padding: 0.4em;
-  margin: 0.5em;
+  padding: 0.5em;
   margin-right: 0;
 }
 
 .clipBoardButton{
   cursor: pointer;
-  height: 40.8px;
   padding: 0.5em;
-  border: solid 1px black;
+  text-decoration: none;
+  border-left: solid 1px black;
   background: none;
-  border-left: none;
-  margin: 0.5em;
-  margin-left: 0em;
   transition: background 0.3s ease-in-out, width 0.3s ease-in-out;
-  width: 9em;
-  margin-top: 8px;
+  width: 8em;
+  text-align: center;
 }
 
-@media (max-width: 800px){
+@media (max-width: 800px) {
   .clipBoardButton{
-    height: 36.4px;
-    width: 7em;
+    width: 6em;
   }
+  
 }
 
 .clipBoardButton:hover{
@@ -60,4 +55,8 @@
 .IPParentContainer{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--clr-dark);
+  margin: 0.5em;
 }

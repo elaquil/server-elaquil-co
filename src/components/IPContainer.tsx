@@ -9,19 +9,17 @@ const IPContainer = (
   {publicIp} : IPContainerProps
 ) => {
   const [copyToClipboardText, setCopyToClipboardText] = useState('COPY');
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
 
   const handleCopyToClipboard = () => {
     if(publicIp === undefined) return;
     if(buttonRef.current === null) return;
     navigator.clipboard.writeText(publicIp);
     setCopyToClipboardText('COPIED!');
-    buttonRef.current.disabled = true;
     buttonRef.current.classList.add('disabled');
     setTimeout(() => {
       setCopyToClipboardText('COPY');
       if(buttonRef.current === null) return;
-      buttonRef.current.disabled = false;
       buttonRef.current.classList.remove('disabled');
     }, 2000);
   }
@@ -35,9 +33,7 @@ const IPContainer = (
         <div className='IPContainer InlineBlock'>
           <h2>{publicIp}</h2>
         </div>
-        <div className='InlineBlock'>
-        <button className='clipBoardButton' onClick={handleCopyToClipboard} ref={buttonRef}><h2>{copyToClipboardText}</h2></button>
-        </div>
+          <a className='clipBoardButton' onClick={handleCopyToClipboard} ref={buttonRef}><h2>{copyToClipboardText}</h2></a>
       </div>      
       }
     </div>
