@@ -15,7 +15,9 @@ const ServerOffline = (
       <div>
         <Section id={''} title={'Server is Offline'} />
       </div>
-      <TickerButton buttonText={buttonText} onClick={startUpFunction} />
+      <div className="margin1">
+        <TickerButton buttonText={buttonText} onClick={startUpFunction} />
+      </div>
     </>
   );
 }

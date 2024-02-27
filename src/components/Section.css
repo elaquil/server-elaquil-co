@@ -22,5 +22,6 @@
   padding: 0 20px;
   animation: scrollLeft 5s linear infinite;
   -moz-animation: scrollLeft 5s linear infinite;
+  -webkit-animation: scrollLeft 5s 0.01s linear infinite;
   user-select: none;
 }

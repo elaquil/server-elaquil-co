@@ -162,3 +162,7 @@ iframe{
     text-decoration-color: var(--clr-dark-transparent);
   }
 }
+
+.margin1{
+  margin: 1em;
+}
