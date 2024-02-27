@@ -1,5 +1,5 @@
 .secTitleContainer{
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   border-top: var(--clr-dark) solid 1px;
   border-bottom: var(--clr-dark) solid 1px;
