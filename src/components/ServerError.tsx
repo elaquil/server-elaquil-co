@@ -1,15 +1,6 @@
 import Section from './Section';
 
-interface ServerErrorProps{
-  refreshServerInfo: Function;
-}
-
-const ServerError = (
-  {refreshServerInfo} : ServerErrorProps
-) => {
-  setTimeout(() => {
-    refreshServerInfo();
-  }, 5000);
+const ServerError = () => {
   return (
     <>
       <div className='ServerError'>

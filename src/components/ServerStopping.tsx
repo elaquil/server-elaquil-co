@@ -2,11 +2,13 @@ import Section from './Section';
 
 interface ServerPendingProps{
   refreshServerInfo: Function;
+  infoState: string;
 }
 
-const ServerStopping = ({refreshServerInfo} : ServerPendingProps) => {
+const ServerStopping = ({refreshServerInfo, infoState} : ServerPendingProps) => {
   setTimeout(() => {
-    refreshServerInfo();
+    if(infoState == "Stopping")
+      refreshServerInfo();
   }, 5000);
   
   return (

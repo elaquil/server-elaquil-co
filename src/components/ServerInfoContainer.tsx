@@ -79,8 +79,7 @@ const ServerInfoContainer = () => {
     setServerStarting(true);
     fetch(import.meta.env.VITE_SERVER_START_ENDPOINT)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         setTimeout(() => {
         setServerStarting(false);
         setPollServer(pollServer + 1); }, 10000);
@@ -108,20 +107,20 @@ const ServerInfoContainer = () => {
         }
         else switch(infoState){
           case "Error":
-            return <ServerError refreshServerInfo={refreshServerInfo} />
+            return <ServerError />
           case "Pending":
-            return <ServerPending refreshServerInfo={refreshServerInfo} />
+            return <ServerPending refreshServerInfo={refreshServerInfo} infoState={infoState} />
           case "Running":
             return <ServerOnline serverInfo={serverInfo} />
           case "Stopping":
-            return <ServerStopping refreshServerInfo={refreshServerInfo}/>
+            return <ServerStopping refreshServerInfo={refreshServerInfo} infoState={infoState}/>
           case "Stopped":
             return <ServerOffline startUpFunction={serverStarting ? () => { } :
               startServer} buttonText={serverStarting ? 'Starting...' : 'Start it up?'} />
           case "Client Error":
             return <ClientError />
           default:
-            return <ServerError refreshServerInfo={refreshServerInfo} />
+            return <ServerError />
         }
       })()}
     </div>
