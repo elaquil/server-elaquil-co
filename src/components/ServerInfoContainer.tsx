@@ -38,7 +38,6 @@ const ServerInfoContainer = () => {
   const [serverStarting, setServerStarting] = useState(false);
   
   useEffect(() => {
-    console.log('fetching server info');
     setIsLoading(true);
     fetch(import.meta.env.VITE_SERVER_INFO_ENDPOINT)
       .then((res) => res.json())
@@ -96,7 +95,7 @@ const ServerInfoContainer = () => {
 
   return (
     <div className='ServerInfoContainer centered'>
-      {!false && 
+      {!isLoading && 
         <div className='RefreshButtonWrapper'>
           <span className='IndicatorWrapper'>
             <div className={infoState == "Running" ? "Indicator Live" : "Indicator"}></div>
