@@ -16,15 +16,11 @@ const TickerButton = ({onClick = (event)=>{event.preventDefault()}, anchor = "",
       const container = buttonRef.current;
       const text  = textRef.current;
       if (container && text) {
+        container.style.transition = "none";
         const textWidth = text.offsetWidth;
-        console.log(textWidth);
         container.style.width = `${textWidth}px`;
+        container.style.transition = "width 0.2s ease-in-out";
       }
-      setTimeout(() => {
-        if(container){
-          container.style.transition = "width 0.2s ease-in-out";
-        }
-      }, 1);
     });
   }, [buttonText]);
 

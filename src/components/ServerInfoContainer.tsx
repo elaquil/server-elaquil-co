@@ -92,7 +92,6 @@ const ServerInfoContainer = () => {
     );
   }
 
-
   return (
     <div className='ServerInfoContainer centered'>
       {!isLoading && 
@@ -100,7 +99,7 @@ const ServerInfoContainer = () => {
           <span className='IndicatorWrapper'>
             <div className={infoState == "Running" ? "Indicator Live" : "Indicator"}></div>
           </span>
-          <TickerButton buttonText={isLoading? "Refreshing..." : "Refresh?"} onClick={isLoading? ()=>{} : refreshServerInfo} />
+          <TickerButton buttonText="Refresh?" onClick={isLoading? ()=>{} : refreshServerInfo} />
         </div>
       }
       {(() => {
